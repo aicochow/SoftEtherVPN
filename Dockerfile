@@ -1,6 +1,7 @@
 FROM centos:centos7
 
-MAINTAINER Tomohisa Kusano <siomiz@gmail.com>
+LABEL maintainer="Tomohisa Kusano <siomiz@gmail.com>" \
+      contributors="Ian Neubert <github.com/ianneub>; Ky-Anh Huynh <github.com/icy>; Max Kuchin <mkuchin@gmail.com>"
 
 ENV BUILD_VERSION v4.24-9651-beta
 
@@ -16,4 +17,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 500/udp 4500/udp 1701/tcp 1194/udp 5555/tcp
 
-CMD ["/usr/local/sbin/run"]
+CMD ["/usr/local/bin/dumb-init", "--", "/opt/vpnserver", "execsvc"]
