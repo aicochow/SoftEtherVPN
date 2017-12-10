@@ -1,0 +1,11 @@
+dist: trusty
+sudo: required
+
+jobs:
+  include:
+    - stage: Docker Build
+      script:
+      - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+      - docker build -t softethervpn .
+      - docker tag softethervpn eiko/softethervpn:travis-ci
+      - docker push eiko/softethervpn:travis-ci
