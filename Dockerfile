@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-ENV BUILD_VERSION v4.24-9652-beta
+ENV BUILD_VERSION v4.25-9656-rtm
 
 COPY copyables /
 RUN chmod +x /entrypoint.sh /gencert.sh
